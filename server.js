@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
 /********************************/
@@ -14,15 +14,16 @@ const app = express();
 /********************************/
 /*** Mise en place Swagger options */
 const swaggerOptions = {
-    swaggerDefinition: {
+    definition: {
+        openapi: '3.0.0',
         info: {
-            title: 'Doc API',
-            version: '1.0.0'
-        }
+            title: 'Hello World',
+            version: '1.0.0',
+        },
     },
     apis: ['server.js'],
 };
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
 /********************************/
 /*** Middelware */
@@ -33,8 +34,41 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /********************************/
 /*** Mise en place du routage */
-app.get('/', (req, res) => {
-    res.send('Première route ')
+
+/**
+ * @openapi
+ * /users:
+ *   get:
+ *     responses:
+ *       200:
+ *         description: Retourne liste utilisateurs.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: integer
+ *                         description: The user ID.
+ *                         example: 0
+ *                       nom:
+ *                         type: string
+ *                         description: Nom de utilisateur.
+ *                         example: TEST
+ */
+app.get('/users', (req, res) => {
+    res.send([
+        {
+            id: 1,
+            nom: 'ARANO',
+            prenom: 'Orkatz'
+        }
+    ])
 })
 
 app.get("*", (req, res) => {
