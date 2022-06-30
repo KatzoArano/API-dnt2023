@@ -58,5 +58,28 @@ router.put('', (req, res) => {
 
         })
 })
-router.patch('/:id')
+router.patch('/:id', (req, res) => {
+    let userId = parseInt(req.params.id)
+
+    // Vérification si le champ id est présent et cohérent
+    if (!userId) {
+        return res.status(400).json({ message: "Parametres manquants" })
+    }
+
+    // Recherche de l'utilisateur
+    User.findOne({ where: { id: userId }, raw: true })
+        .then(user => {
+            // Vérifier que l'utilisateur existe
+            if (user === null) {
+                return res.status(400).json({ message: "Utilisateur non existant !" })
+            }
+            // MaJ de l'utilisateur
+            User.update(req.body, { where: { id: userId } })
+                .then(user => res.json({ message: "Utilisateur mis à jours" }))
+                .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
+        })
+        .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
+
+
+})
 router.delete('/:id')
