@@ -37,6 +37,26 @@ router.get('/:id', (req, res) => {
 
 
 })
-router.put('')
+router.put('', (req, res) => {
+    // Validation des données
+    const { nom, prenom, email, password, adresse, ville, cp } = req.body
+
+    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp) {
+        return res.status(400).json({ message: "Data manquantes" })
+    }
+
+    User.findOne({ where: { email: email }, raw: true })
+        .then(user => {
+            // Vérification si utilisateur existe déja
+            if (user !== null) {
+                return res.status(409).json({ message: "Utilisateur existe déjà" })
+            }
+
+            User.create(req.body)
+                .then(user => res.json({ message: "Utilisateur crée" }))
+                .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
+
+        })
+})
 router.patch('/:id')
 router.delete('/:id')
