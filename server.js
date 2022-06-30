@@ -1,3 +1,5 @@
+/********************************/
+/*** Import modules*/
 const express = require('express');
 const cors = require('cors');
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -33,8 +35,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /********************************/
-/*** Mise en place du routage */
-
+/*** SWAGGER */
 /**
  * @openapi
  * /users:
@@ -61,12 +62,15 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *                         description: Nom de utilisateur.
  *                         example: TEST
  */
+
+/********************************/
+/*** Mise en place routage*/
 app.get('/users', (req, res) => {
     res.send([
         {
             id: 1,
-            nom: 'ARANO',
-            prenom: 'Orkatz'
+            nom: 'TEST',
+            prenom: 'Test'
         }
     ])
 })
