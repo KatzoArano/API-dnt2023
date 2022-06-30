@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 /********************************/
 /*** Mise en place du routage */
 app.get('/', (req, res) => {
-    res.send('Route par défaut')
+    res.send('Première route ')
 })
 
 app.get("*", (req, res) => {
