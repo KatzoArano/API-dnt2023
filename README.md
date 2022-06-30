@@ -6,6 +6,7 @@ Création API NodeJS/Express - validation Block 2
 - [x] Connexion Database
 - [ ] Création entité USER
 - [ ]  CRUD
+- [ ] Affichage API Swagger 
 
 ## Finitions 
 
