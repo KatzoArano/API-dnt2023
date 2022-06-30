@@ -23,6 +23,6 @@ app.get("*", (req, res) => {
 
 /********************************/
 /*** Démarrer le serveur */
-app.listen(8989, () => {
-    console.log('Serveur OK !')
+app.listen(process.env.SERVER_PORT, () => {
+    console.log(`Serveur OK sur le port ${process.env.SERVER_PORT} !`)
 })
