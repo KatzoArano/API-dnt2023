@@ -5,6 +5,6 @@ Création API NodeJS/Express - validation Block 2
 - [x] Connexion Serveur
 - [x] Connexion Database
 - [ ] Création entité USER
-- []  CRUD
+- [ ]  CRUD
 
 ## Finitions 
