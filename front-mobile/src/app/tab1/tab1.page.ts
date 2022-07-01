@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { ContactPage } from '../contact/contact.page';
 
 @Component({
   selector: 'app-tab1',
@@ -10,7 +12,7 @@ export class Tab1Page {
 
   data: any[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private modalController: ModalController) {
   }
 
   ngOnInit(): void {
@@ -20,6 +22,19 @@ export class Tab1Page {
         console.log(resp.products)
         this.data = resp.products
       });
+  }
+
+  click() {
+    console.log('Tab1 > click()');
+    this.presentModal()
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ContactPage,
+      cssClass: 'my-custom-class',
+    });
+    return await modal.present();
   }
 
 }
