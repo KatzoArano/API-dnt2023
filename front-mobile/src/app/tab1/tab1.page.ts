@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  data: any[] = [];
+
+  constructor(private http: HttpClient) {
+  }
+
+  ngOnInit(): void {
+    this.http
+      .get(`https://dummyjson.com/products?limit=10`)
+      .subscribe((resp: { products: any }) => {
+        console.log(resp.products)
+        this.data = resp.products
+      });
+  }
 
 }
