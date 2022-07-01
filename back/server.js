@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const router = express.Router();
 
 /********************************/
 /*** Import connexion à la BDD*/
@@ -65,7 +66,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /********************************/
 /*** Mise en place routage*/
-app.get('/users', (req, res) => {
+router.get('/users', (req, res) => {
     res.send([
         {
             id: 1,
@@ -75,7 +76,7 @@ app.get('/users', (req, res) => {
     ])
 })
 
-app.get("*", (req, res) => {
+router.get("*", (req, res) => {
     res.status(501).send('Ressource non existante')
 })
 
