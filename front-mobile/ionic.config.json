@@ -1,0 +1,7 @@
+{
+  "name": "Hemengo Distrib",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

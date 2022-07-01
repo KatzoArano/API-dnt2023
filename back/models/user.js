@@ -29,7 +29,7 @@ const User = db.define('User', {
     },
     password: {
         type: DataType.STRING(64),
-        is: /^[0-9a-f]{64}$/i // contraite
+        is: /^[0-9a-f]{64}$/i // contrainte
     },
     adresse: {
         type: DataType.STRING(),
