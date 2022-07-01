@@ -1,13 +1,24 @@
 # API-dnt2023
-Création API NodeJS/Express - validation Block 2 
+Création API NodeJS/Express - validation Block 2.
 
-## TODO 
+# LANCEMENT PROJET
+
+## TODO BACK
 - [x] Connexion Serveur
 - [x] Connexion Database
 - [ ] Création entité USER
 - [ ]  CRUD
 - [ ] Relations
 - [ ] Affichage API Swagger
+
+## TODO IONIC
+- [x] Création projet
+- [ ] Création vues
+- [ ] Affichage entity
+
+## TODO ANGULAR
+- [ ] Création projet
+- [ ] Création vues
 
 ## Finitions 
 
