@@ -1,6 +1,17 @@
 # API-dnt2023
 Création API NodeJS/Express - validation Block 2.
 
+## LANCEMENT PROJET localhost
+## BACK
+- npm install 
+- npm start
+
+## ANGULAR
+- ng serve
+
+## IONIC
+- ionic serve
+
 ## TODO BACK
 - [x] Connexion Serveur
 - [x] Connexion Database
