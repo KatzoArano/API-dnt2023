@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ContactPage } from '../contact/contact.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -12,7 +13,7 @@ export class Tab1Page {
 
   data: any[] = [];
 
-  constructor(private http: HttpClient, private modalController: ModalController) {
+  constructor(private http: HttpClient, private modalController: ModalController, public router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,6 +28,10 @@ export class Tab1Page {
   click() {
     console.log('Tab1 > click()');
     this.presentModal()
+  }
+
+  logout() {
+    this.router.navigate(['login']);
   }
 
   async presentModal() {

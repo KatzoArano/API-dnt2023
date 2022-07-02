@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HEMENGO DISTRIB</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item >
+  <ion-label color="light">Email:</ion-label>
+  <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="light">Mot de passe:</ion-label>
+  <ion-input color="light" type="password" placeholder="Mot de passe"></ion-input>
+</ion-item>
+
+<div class="buttons">
+  <ion-button color="light" expand="block" shape="round" fill="outline" (click)="login()">Connexion</ion-button>
+  <br>
+  <ion-button color="tertiary" expand="block" shape="round" (click)="register()">Inscription</ion-button>
+</div>
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactPage } from '../contact/contact.page';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -9,10 +10,10 @@ import { ModalController } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, public router: Router) { }
 
   click() {
-    console.log('Tab1 > click()');
+    console.log('Tab2 > click()');
     this.presentModal()
   }
 
@@ -22,6 +23,10 @@ export class Tab2Page {
       cssClass: 'my-custom-class',
     });
     return await modal.present();
+  }
+
+  logout() {
+    this.router.navigate(['login']);
   }
 
 }

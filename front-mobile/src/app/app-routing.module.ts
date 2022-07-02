@@ -8,7 +8,15 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+    loadChildren: () => import('./contact/contact.module').then(m => m.ContactPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'inscription',
+    loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
   }
 ];
 @NgModule({
@@ -17,4 +25,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
