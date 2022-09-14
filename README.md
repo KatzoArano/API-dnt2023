@@ -1,5 +1,6 @@
 # API-dnt2023
 Création API NodeJS/Express - validation Block 2.
+https://github.com/orkatz-arano/API-dnt2023
 
 ## LANCEMENT PROJET localhost
 ## BACK
@@ -10,15 +11,19 @@ Création API NodeJS/Express - validation Block 2.
 - ng serve
 
 ## IONIC
-- ionic serve
+- [ ] Création d'une views
+- [ ] Connexion Back / appli mobile
+
 
 ## TODO BACK
-- [x] Connexion Serveur
+- [x] Connexion Serveur ExpressJS / NodeJS
 - [x] Connexion Database
 - [ ] Création entité USER
 - [ ] CRUD
 - [ ] Relations
 - [ ] Affichage API Swagger
+
+## DOCKER
 - [ ] Docker container http
 
 ## TODO IONIC
@@ -28,9 +33,10 @@ Création API NodeJS/Express - validation Block 2.
 
 ## TODO ANGULAR
 - [ ] Création projet
-- [ ] Création vues
-
+- [ ] Création vues / Connexion back nodeJS
+ 
 ## TESTS
+- [ ] Tester une fonctionnalitée
 
 ## FINITIONS 
 
