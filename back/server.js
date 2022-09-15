@@ -40,12 +40,16 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 /*** Import des modules de routage */
 const user_router = require('./routes/users');
 const produit_router = require('./routes/produits');
+const produit_categorie_router = require('./routes/produit_categorie');
+
 
 
 /********************************/
 /*** Mise en place du routage */
 app.use('/users', user_router);
 app.use('/produits', produit_router);
+app.use('/produit_categorie', produit_categorie_router);
+
 
 
 /********************************/
