@@ -1,32 +1,32 @@
 /********************************/
 /*** Import module nécessaires */
 
-const { DataType } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db.config');
 
 
 /********************************/
-/*** Définition du modèle Produit */
+/*** Définition du modèle Use r*/
 const Produit = db.define('Produit', {
     id: {
-        type: DataType.INTEGER(10),
+        type: DataTypes.INTEGER(10),
         primaryKey: true,
         autoIncrement: true
     },
     nom: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     },
     description: {
-        type: DataType.TEXT(),
+        type: DataTypes.TEXT(),
         defaultValue: ''
     },
     prix: {
-        type: DataType.FLOAT(),
-        defaultValue: ''
+        type: DataTypes.INTEGER(10),
     },
-}, { paranoid: true })
+}, { paranoid: true });
+
 
 /********************************/
-/*** Export Produit */
+/*** Export User */
 module.exports = Produit

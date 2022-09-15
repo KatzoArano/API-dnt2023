@@ -1,6 +1,7 @@
 /********************************/
 /*** Import modules */
-const express = require('express');
+const express = require('express')
+const userCtrl = require('../controllers/user')
 const User = require('../models/user');
 
 /********************************/
@@ -9,77 +10,21 @@ let router = express.Router();
 
 /********************************/
 /*** Mise en place des différentes routes utilisateurs */
-router.get('', (req, res) => {
-    User.findAll()
-        .then(users => res.json({ data: users }))
-        .catch(err => res.status(500).json({ message: 'Erreur' }))
-})
+/**********************************/
+/*** Routage de la ressource User */
 
-router.get('/:id', (req, res) => {
-    // Obliger à transformer un chiffre en lettre, en int
-    let userId = parseInt(req.params.id)
+router.get('/', userCtrl.getAllUsers)
 
-    //vérification si le champ id est présent et cohérent
-    if (!userId) {
-        return res.status(400).json({ message: 'Paramètre manquant' })
-    }
+router.get('/:id', userCtrl.getUser)
 
-    // Récupération de l'utilisateur
-    User.findOne({ where: { id: userId }, raw: true })
-        .then(user => {
-            if ((user === null)) {
-                return res.status(400).json({ message: 'Utilisateur non trouvé' })
-            }
-            // Utilisateur trouvé
-            return res.json({ data: user })
-        })
-        .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
+router.put('', userCtrl.addUser)
 
+router.patch('/:id', userCtrl.updateUser)
 
-})
-router.put('', (req, res) => {
-    // Validation des données
-    const { nom, prenom, email, password, adresse, ville, cp } = req.body
+router.post('/untrash/:id', userCtrl.untrashUser)
 
-    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp) {
-        return res.status(400).json({ message: "Data manquantes" })
-    }
+router.delete('/trash/:id', userCtrl.trashUser)
 
-    User.findOne({ where: { email: email }, raw: true })
-        .then(user => {
-            // Vérification si utilisateur existe déja
-            if (user !== null) {
-                return res.status(409).json({ message: "Utilisateur existe déjà" })
-            }
+router.delete('/:id', userCtrl.deleteUser)
 
-            User.create(req.body)
-                .then(user => res.json({ message: "Utilisateur crée" }))
-                .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
-
-        })
-})
-router.patch('/:id', (req, res) => {
-    let userId = parseInt(req.params.id)
-
-    // Vérification si le champ id est présent et cohérent
-    if (!userId) {
-        return res.status(400).json({ message: "Parametres manquants" })
-    }
-
-    // Recherche de l'utilisateur
-    User.findOne({ where: { id: userId }, raw: true })
-        .then(user => {
-            // Vérifier que l'utilisateur existe
-            if (user === null) {
-                return res.status(400).json({ message: "Utilisateur non existant !" })
-            }
-            // MaJ de l'utilisateur
-            User.update(req.body, { where: { id: userId } })
-                .then(user => res.json({ message: "Utilisateur mis à jours" }))
-                .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
-        })
-        .catch(err => res.status(500).json({ message: 'Erreur BDD', error: err }))
-
-
-})
-router.delete('/:id')
+module.exports = router

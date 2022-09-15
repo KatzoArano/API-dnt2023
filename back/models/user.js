@@ -1,7 +1,7 @@
 /********************************/
 /*** Import module nécessaires */
 
-const { DataType } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db.config');
 
 
@@ -9,41 +9,42 @@ const db = require('../db.config');
 /*** Définition du modèle Use r*/
 const User = db.define('User', {
     id: {
-        type: DataType.INTEGER(10),
+        type: DataTypes.INTEGER(10),
         primaryKey: true,
         autoIncrement: true
     },
     nom: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     },
     prenom: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     },
     email: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         validate: {
             isEmail: true // validation de donnée
         }
     },
     password: {
-        type: DataType.STRING(64),
+        type: DataTypes.STRING(64),
         is: /^[0-9a-f]{64}$/i // contrainte
     },
     adresse: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     },
     ville: {
-        type: DataType.STRING(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     },
     cp: {
-        type: DataType.INTEGER(),
+        type: DataTypes.STRING(),
         defaultValue: ''
     }
-}, { paranoid: true })
+}, { paranoid: true });
+
 
 /********************************/
 /*** Export User */

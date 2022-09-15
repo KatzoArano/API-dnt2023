@@ -35,6 +35,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+
+/********************************/
+/*** Import des modules de routage */
+const user_router = require('./routes/users');
+const produit_router = require('./routes/produits');
+
+
+/********************************/
+/*** Mise en place du routage */
+app.use('/users', user_router);
+app.use('/produits', produit_router);
+
+
 /********************************/
 /*** SWAGGER */
 /**
