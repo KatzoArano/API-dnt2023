@@ -102,8 +102,8 @@ router.get("*", (req, res) => {
 db.authenticate()
     .then(() => console.log('Database OK'))
     .then(() => {
-        app.listen(process.env.SERVER_PORT, () => {
-            console.log(`Serveur OK sur le port ${process.env.SERVER_PORT} !`)
+        app.listen(8888, () => {
+            console.log(`Serveur OK sur le port 8888 !`)
         })
     })
     .catch(err => console.log('Database error', err))
