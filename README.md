@@ -18,10 +18,14 @@ https://github.com/orkatz-arano/API-dnt2023
 ## TODO BACK
 - [x] Connexion Serveur ExpressJS / NodeJS
 - [x] Connexion Database
-- [ ] Création entité USER
+- [x] Création entité USER
 - [ ] CRUD
 - [ ] Relations
 - [ ] Affichage API Swagger
+- [ ] Hash password
+
+## TODO BDD
+- [ ] Création des entités && migrations
 
 ## DOCKER
 - [ ] Docker container http
