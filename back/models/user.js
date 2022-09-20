@@ -7,45 +7,43 @@ const db = require('../db.config');
 
 /********************************/
 /*** Définition du modèle Use r*/
-const User = db.define('User', {
-    id: {
-        type: DataTypes.INTEGER(10),
-        primaryKey: true,
-        autoIncrement: true
-    },
-    nom: {
-        type: DataTypes.STRING(),
-        defaultValue: ''
-    },
-    prenom: {
-        type: DataTypes.STRING(),
-        defaultValue: ''
-    },
-    email: {
-        type: DataTypes.STRING(),
-        validate: {
-            isEmail: true // validation de donnée
+module.exports = (sequelize) => {
+    const User = sequelize.define('User', {
+        id: {
+            type: DataTypes.INTEGER(10),
+            primaryKey: true,
+            autoIncrement: true
+        },
+        nom: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
+        },
+        prenom: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
+        },
+        email: {
+            type: DataTypes.STRING(),
+            validate: {
+                isEmail: true // validation de donnée
+            }
+        },
+        password: {
+            type: DataTypes.STRING(64),
+            is: /^[0-9a-f]{64}$/i // contrainte
+        },
+        adresse: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
+        },
+        ville: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
+        },
+        cp: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
         }
-    },
-    password: {
-        type: DataTypes.STRING(64),
-        is: /^[0-9a-f]{64}$/i // contrainte
-    },
-    adresse: {
-        type: DataTypes.STRING(),
-        defaultValue: ''
-    },
-    ville: {
-        type: DataTypes.STRING(),
-        defaultValue: ''
-    },
-    cp: {
-        type: DataTypes.STRING(),
-        defaultValue: ''
-    }
-}, { paranoid: true });
-
-
-/********************************/
-/*** Export User */
-module.exports = User
+    }, { paranoid: true });
+    return User;
+}

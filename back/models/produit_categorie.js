@@ -7,7 +7,7 @@ const db = require('../db.config');
 
 /********************************/
 /*** Définition du modèle Use r*/
-const Produit_Categorie = db.define('Produit_Categorie', {
+const Produit_Categorie = db.sequelize.define('Produit_Categorie', {
     id: {
         type: DataTypes.INTEGER(10),
         primaryKey: true,

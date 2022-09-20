@@ -88,18 +88,20 @@ router.get('/users', (req, res) => {
         {
             id: 1,
             nom: 'TEST',
-            prenom: 'Test'
+            prenom: 'Test',
+            email: 'test@wanadoo.fr',
+            password: 'test',
+            adresse: 'adresse de test',
+            ville: 'BAYONNE',
+            cp: '64100'
         }
     ])
 })
 
-router.get("*", (req, res) => {
-    res.status(501).send('Ressource non existante')
-})
 
 /********************************/
 /*** Start serveur avec test DB */
-db.authenticate()
+db.sequelize.authenticate()
     .then(() => console.log('Database OK'))
     .then(() => {
         app.listen(8888, () => {

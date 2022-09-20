@@ -1,5 +1,3 @@
-/***********************************/
-/*** Import des module nécessaires */
 const DB = require('../db.config')
 const User = DB.User
 
@@ -22,7 +20,7 @@ exports.getUser = async (req, res) => {
 
     try {
         // Récupération de l'utilisateur et vérification
-        let user = await User.findOne({ where: { id: userId }, attributes: ['id', 'pseudo', 'email'] })
+        let user = await User.findOne({ where: { id: userId }, attributes: ['id', 'email'] })
         if (user === null) {
             return res.status(404).json({ message: 'This user does not exist !' })
         }
@@ -34,10 +32,11 @@ exports.getUser = async (req, res) => {
 }
 
 exports.addUser = async (req, res) => {
-    const { nom, prenom, pseudo, email, password } = req.body
+    const { nom, prenom, email, password, adresse, ville, cp } = req.body
+
 
     // Validation des données reçues
-    if (!nom || !prenom || !pseudo || !email || !password) {
+    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp) {
         return res.status(400).json({ message: 'Missing Data' })
     }
 
