@@ -4,7 +4,6 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db.config');
 
-
 /********************************/
 /*** Définition du modèle Use r*/
 module.exports = (sequelize) => {
