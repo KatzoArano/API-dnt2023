@@ -87,43 +87,26 @@ exports.updateUser = async (req, res) => {
     }
 }
 
-exports.untrashUser = (req, res) => {
-    let userId = parseInt(req.params.id)
-
-    // Vérification si le champ id est présent et cohérent
-    if (!userId) {
-        return res.status(400).json({ message: 'Missing parameter' })
-    }
-
-    User.restore({ where: { id: userId } })
-        .then(() => res.status(204).json({}))
-        .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
-}
-
-exports.trashUser = (req, res) => {
-    let userId = parseInt(req.params.id)
-
-    // Vérification si le champ id est présent et cohérent
-    if (!userId) {
-        return res.status(400).json({ message: 'Missing parameter' })
-    }
-
-    // Suppression de l'utilisateur
-    User.destroy({ where: { id: userId } })
-        .then(() => res.status(204).json({}))
-        .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
-}
-
 exports.deleteUser = (req, res) => {
-    let userId = parseInt(req.params.id)
+    const id = req.params.id;
 
     // Vérification si le champ id est présent et cohérent
-    if (!userId) {
-        return res.status(400).json({ message: 'Missing parameter' })
-    }
+    // if (!userId) {
+    //     return res.status(400).json({ message: 'Missing parameter' })
+    // }
 
     // Suppression de l'utilisateur
-    User.destroy({ where: { id: userId }, force: true })
-        .then(() => res.status(204).json({ message: 'User delete OK !' }))
+    User.destroy({ where: { id: id }, force: true })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "User was deleted successfully!"
+                });
+            } else {
+                res.send({
+                    message: `Cannot delete User with id=${id}. Maybe User was not found!`
+                });
+            }
+        })
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 }

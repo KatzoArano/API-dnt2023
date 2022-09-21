@@ -4,7 +4,7 @@
   "description": "Création API NodeJS/Express - validation Block 2",
   "main": "index.js",
   "scripts": {
-    "start": "node -r dotenv/config server.js",
+    "start": "nodemon node server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "repository": {

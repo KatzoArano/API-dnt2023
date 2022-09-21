@@ -17,13 +17,9 @@ router.get('/', userCtrl.getAllUsers)
 
 router.get('/:id', userCtrl.getUser)
 
-router.put('', userCtrl.addUser)
+router.post('/', userCtrl.addUser)
 
-router.patch('/:id', userCtrl.updateUser)
-
-router.post('/untrash/:id', userCtrl.untrashUser)
-
-router.delete('/trash/:id', userCtrl.trashUser)
+router.put('/:id', userCtrl.updateUser)
 
 router.delete('/:id', userCtrl.deleteUser)
 
