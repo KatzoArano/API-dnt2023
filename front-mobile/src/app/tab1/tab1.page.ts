@@ -18,10 +18,10 @@ export class Tab1Page {
 
   ngOnInit(): void {
     this.http
-      .get(`https://dummyjson.com/products?limit=10`)
-      .subscribe((resp: { products: any }) => {
-        console.log(resp.products)
-        this.data = resp.products
+      .get(`http://localhost:8888/users/`)
+      .subscribe((resp: { data: any }) => {
+        console.log(resp.data)
+        this.data = resp.data
       });
   }
 
