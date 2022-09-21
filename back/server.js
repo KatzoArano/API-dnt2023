@@ -3,6 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const router = express.Router();
+require("dotenv").config();
 
 /********************************/
 /*** Import connexion à la BDD*/
@@ -14,6 +15,11 @@ const app = express();
 
 /*** Middelware */
 app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: "Origin, X-Requested-With, x-access-token, role, Content, Accept, Content-Type, Authorization"
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
@@ -38,8 +44,8 @@ app.use('/produit_categorie', produit_categorie_router);
 db.sequelize.authenticate()
     .then(() => console.log('Database OK'))
     .then(() => {
-        app.listen(8888, () => {
-            console.log(`Serveur OK sur le port 8888 !`)
+        app.listen(process.env.SERVER_PORT, () => {
+            console.log(`Serveur OK! ${process.env.SERVER_PORT}`)
         })
     })
     .catch(err => console.log('Database error', err))
