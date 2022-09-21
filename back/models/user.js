@@ -2,8 +2,6 @@
 /*** Import module nécessaires */
 
 const { DataTypes } = require('sequelize');
-const db = require('../db.config');
-
 /********************************/
 /*** Définition du modèle Use r*/
 module.exports = (sequelize) => {
@@ -43,6 +41,6 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(),
             defaultValue: ''
         }
-    }, { paranoid: true });
+    }, {});
     return User;
 }
