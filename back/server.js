@@ -48,7 +48,7 @@ db.sequelize.authenticate()
     .then(() => console.log('Database OK'))
     .then(() => {
         app.listen(process.env.SERVER_PORT, () => {
-            console.log(`Serveur OK! ${process.env.SERVER_PORT}`)
+            console.log(`Serveur YES! ${process.env.SERVER_PORT}`)
         })
     })
     .catch(err => console.log('Database error', err))
