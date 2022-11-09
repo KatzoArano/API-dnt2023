@@ -29,7 +29,7 @@ export class UserService {
     return this.http.put(this.url + '/' + user.id, user)
   }
 
-  deleteUser(user: IUser) {
-    return this.http.delete(this.url + '/' + user.id)
+  deleteUser(id: number) {
+    return this.http.delete(this.url + '/' + id)
   }
 }

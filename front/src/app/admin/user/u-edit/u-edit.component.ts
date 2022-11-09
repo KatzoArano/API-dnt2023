@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/_interfaces/user';
 import { UserService } from 'src/app/_services/user.service';
 
@@ -22,7 +22,7 @@ export class UEditComponent implements OnInit {
     deleteAt: null
 
   }
-  constructor(private activated: ActivatedRoute, private userService: UserService) { }
+  constructor(private activated: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.activated.snapshot.paramMap.get('id');
@@ -35,11 +35,13 @@ export class UEditComponent implements OnInit {
 
   }
 
+
   onSubmit(): void {
     console.log(this.user)
     this.userService.updateUser(this.user).subscribe(
       data => data
     )
+    // this.router.navigate(['/admin/user']);
   }
 
 }
