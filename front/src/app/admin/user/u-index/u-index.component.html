@@ -1,7 +1,7 @@
 <p>u-index works!</p>
 <div>
-    <table>
-        <thead>
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
                 <th>Action</th>
                 <th>#</th>
@@ -13,8 +13,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of userList">
-                <td><a class="btn btn-warning" [routerLink]="['edit', user.id]">Edit</a></td>
-                <button class="btn btn-danger"(click)="delete(user.id)">Supprimer</button>
+                <td><a class="btn btn-warning" [routerLink]="['edit', user.id]">Edit</a>
+                <button class="btn btn-danger" (click)="delete(user.id)">Supprimer</button></td>
                 <td>{{ user.id }}</td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
