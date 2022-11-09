@@ -1,17 +1,22 @@
 <nav>
-    <a class="simple_link" [routerLink]="['/']">Retour accueil</a>
-    <ul  id="sidemenu">
-        <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+  <ul  id="sidemenu">
+    <div class="card">
+      <div class="card-body">
         <li> Utilisateur</li>
         <ul>
-            <li><a [routerLink]="['user']">Liste</a></li>
-            <li><a [routerLink]="['user/add']">Ajouter</a></li>
+          <li><a [routerLink]="['user']">Liste</a></li>
+          <li><a [routerLink]="['user/add']">Ajouter</a></li>
         </ul>
-        <li>Produit</li>
-        <ul>
-            <li><a [routerLink]="['produit']">Liste</a></li>
-            <li><a [routerLink]="['produit/add']">Ajouter</a></li>
-        </ul>
+     </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+    <li>Produit</li>
+    <ul>
+      <li><a [routerLink]="['produit']">Liste</a></li>
+      <li><a [routerLink]="['produit/add']">Ajouter</a></li>
     </ul>
-
+  </div>
+</div>
+  </ul>
 </nav>

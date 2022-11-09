@@ -1,26 +1,30 @@
-<p>u-index works!</p>
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>Action</th>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>Date de création</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of userList">
-                <td><a class="btn btn-warning" [routerLink]="['edit', user.id]">Edit</a>
-                <button class="btn btn-danger" (click)="delete(user.id)">Supprimer</button></td>
-                <td>{{ user.id }}</td>
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.createdAt | date:'dd/mm/yyyy' }} </td>
-            </tr>
-        </tbody>
-    </table>
+<h3>Liste des utilisateurs enregistrés</h3>
+<div class="center">
+  <div class="card">
+      <div class="card-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Action</th>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Date de création</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td><a class="btn btn-warning" [routerLink]="['edit', user.id]">Edit</a>
+                    <button class="btn btn-danger" (click)="delete(user.id)">Supprimer</button></td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createdAt | date:'dd/mm/yyyy' }} </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  </div>
 </div>

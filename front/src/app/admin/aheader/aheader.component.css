@@ -3,3 +3,7 @@ header{
     display: flex;
     justify-content: space-between;
 }
+.simple_link{
+  color: white;
+  text-decoration: none;
+}

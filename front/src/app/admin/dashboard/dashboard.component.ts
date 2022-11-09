@@ -10,6 +10,8 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Récupere les utilisateurs sous forme d'un table
+    // Récupere les produits
   }
 
 }
