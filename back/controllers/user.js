@@ -33,11 +33,11 @@ exports.getUser = async (req, res) => {
 }
 
 exports.addUser = async (req, res) => {
-    const { nom, prenom, email, password, adresse, ville, cp, role } = req.body
+    const { nom, prenom, email, password, adresse } = req.body
 
 
     // Validation des données reçues
-    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp || !role) {
+    if (!nom || !prenom || !email || !password || !adresse) {
         return res.status(400).json({ message: 'Missing Data' })
     }
 
@@ -98,7 +98,7 @@ exports.deleteUser = (req, res) => {
     // Suppression de l'utilisateur
     User.destroy({ where: { id: id }, force: true })
         .then(num => {
-            if (num == 1) {
+            if (num == 11) {
                 res.status(200).json({
                     message: "User was deleted successfully!"
                 });

@@ -8,12 +8,13 @@
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Email</th>
-                <th>Dt Création</th>
+                <th>Date de création</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of userList">
                 <td><a [routerLink]="['edit', user.id]">Edit</a></td>
+                <button (click)="delete(user.id)">Supprimer</button>
                 <td>{{ user.id }}</td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>

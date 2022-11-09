@@ -22,4 +22,11 @@ export class UIndexComponent implements OnInit {
     )
   }
 
+  delete(id: any) {
+    console.log(id)
+    this.userService.deleteUser(id).subscribe(
+      data => data
+    )
+  }
+
 }

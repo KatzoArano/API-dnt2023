@@ -21,15 +21,15 @@ export class UserService {
     return this.http.get<ISingleUser>(this.url + '/' + id)
   }
 
-  addUser() {
-
+  addUser(user: IUser) {
+    return this.http.post(this.url, user)
   }
 
   updateUser(user: IUser) {
     return this.http.put(this.url + '/' + user.id, user)
   }
 
-  deleteUser() {
-
+  deleteUser(user: IUser) {
+    return this.http.delete(this.url + '/' + user.id)
   }
 }
