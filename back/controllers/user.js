@@ -81,7 +81,7 @@ exports.updateUser = async (req, res) => {
 
         // Mise à jour de l'utilisateur
         await User.update(req.body, { where: { id: userId } })
-        return res.statu(200).json({ message: 'User Updated' })
+        return res.json({ message: 'User Updated' })
     } catch (err) {
         return res.status(500).json({ message: 'Database Error', error: err })
     }

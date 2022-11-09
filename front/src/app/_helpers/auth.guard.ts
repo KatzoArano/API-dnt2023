@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // Le gardien sert à verrouiller nos routes admin: Retourne l'URL de login
-    return this.router.navigate(['auth']);
+    return true;
   }
 
 }
