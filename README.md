@@ -19,10 +19,10 @@ https://github.com/orkatz-arano/API-dnt2023
 - [x] Connexion Serveur ExpressJS / NodeJS
 - [x] Connexion Database
 - [x] Création entité USER
-- [ ] CRUD
+- [X] CRUD User
 - [ ] Relations
-- [ ] Affichage API Swagger
-- [ ] Hash password
+- [X] Affichage API Swagger User
+- [X] Hash password User
 
 ## TODO BDD
 - [ ] Création des entités && migrations
@@ -40,7 +40,7 @@ https://github.com/orkatz-arano/API-dnt2023
 - [ ] Création vues / Connexion back nodeJS
  
 ## TESTS
-- [ ] Tester une fonctionnalitée
+- [X] Tester une fonctionnalitée
 
 ## FINITIONS 
 
