@@ -23,3 +23,10 @@
 .password{
   margin: 15px;
 }
+
+.form-control.btn-login{
+  color: white;
+}
+.btn-login{
+  background-color: blue;
+}

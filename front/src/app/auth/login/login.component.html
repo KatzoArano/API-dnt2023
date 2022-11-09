@@ -1,17 +1,17 @@
 <div class="form_container">
   <form  name="form"
         #f="ngForm"
-        (ngSubmit)="f.form.valid && login()">
+        (ngSubmit)="f.form.valid">
     <div class="group">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="Email..." [(ngModel)]="form.email" #email="ngModel" required>
+      <label for="email"></label>
+      <input type="email" name="email" id="email" placeholder="Email..." [(ngModel)]="form.email" #email="ngModel" required class="form-control">
       <div class="form_error" *ngIf="email.errors && f.submitted">
         Email est requis !
         </div>
     </div>
     <div class="group">
-      <label for="password">Mot de passe</label>
-      <input type="password" name="password" id="password" placeholder="Mot de passe..."[(ngModel)]="form.password" #password="ngModel" required minlength="5">
+      <label for="password"></label>
+      <input type="password" name="password" id="password" placeholder="Mot de passe..."[(ngModel)]="form.password" #password="ngModel" class="form-control" required minlength="5">
 
        <div class="form_error" *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors['required']">Mot de passe est requis</div>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="group">
-      <button (click)="login()">Connexion</button>
+      <button class="form-control btn-login">Connexion</button>
     </div>
     <a class="password">Mot de passe oublié?</a><br>
     <a class="password">Créer un compte</a>
