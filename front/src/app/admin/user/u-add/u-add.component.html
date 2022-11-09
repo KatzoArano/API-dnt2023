@@ -2,39 +2,39 @@
     <div class="form-group">
         <label for="nom">Nom</label>
         <input type="text" id="nom"
-            name="nom"
+            name="nom" class="form-control"
             [(ngModel)]="user.nom"
             #nom="ngModel">
     </div>
     <div class="form-group">
         <label for="prenom">Prénom</label>
         <input type="text" id="prenom"
-            name="prenom"
+            name="prenom" class="form-control"
             [(ngModel)]="user.prenom"
             #prenom="ngModel">
     </div>
     <div class="form-group">
         <label for="email">Email</label>
         <input type="text" id="email"
-            name="email"
+            name="email" class="form-control"
             [(ngModel)]="user.email"
             #email="ngModel">
     </div>
     <div class="form-group">
         <label for="password">Mot de passe</label>
         <input type="text" id="password"
-            name="password"
+            name="password" class="form-control"
             [(ngModel)]="user.password"
             #password="ngModel">
     </div>
      <div class="form-group">
         <label for="adresse">Adresse</label>
         <input type="text" id="adresse"
-            name="adresse"
+            name="adresse" class="form-control"
             [(ngModel)]="user.adresse"
             #adresse="ngModel">
     </div>
     <div class="form-group">
-        <button type="submit">Ajouter</button>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
     </div>
 </form>
