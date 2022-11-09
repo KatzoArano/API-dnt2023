@@ -48,8 +48,8 @@ exports.addUser = async (req, res) => {
         }
 
         // Hashage du mot de passe utilisateur
-        // let hash = await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
-        // req.body.password = hash
+        let hash = await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
+        req.body.password = hash
 
         // Céation de l'utilisateur
         let userc = await User.create(req.body)
@@ -89,20 +89,17 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = (req, res) => {
     const id = req.params.id;
 
-    // Vérification si le champ id est présent et cohérent
-    // if (!userId) {
-    //     return res.status(400).json({ message: 'Missing parameter' })
-    // }
-
     // Suppression de l'utilisateur
     User.destroy({
         where: {
             id: id
         }
     }).then(count => {
+        // SI le count égal à 0 aucun utilisateur à supprimer
         if (count === 0) {
             return res.status(404).send({ error: 'No user' });
         }
+        // SINON effectuer suppression
         res.status(204).send();
     });
 
