@@ -7,7 +7,7 @@ const User = DB.User
 
 exports.getAllUsers = (req, res) => {
     User.findAll()
-        .then(users => res.json({ data: users }))
+        .then(users => res.json({ users }))
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 }
 
@@ -33,11 +33,11 @@ exports.getUser = async (req, res) => {
 }
 
 exports.addUser = async (req, res) => {
-    const { nom, prenom, email, password, adresse, ville, cp } = req.body
+    const { nom, prenom, email, password, adresse, ville, cp, role } = req.body
 
 
     // Validation des données reçues
-    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp) {
+    if (!nom || !prenom || !email || !password || !adresse || !ville || !cp || !role) {
         return res.status(400).json({ message: 'Missing Data' })
     }
 
@@ -54,7 +54,7 @@ exports.addUser = async (req, res) => {
 
         // Céation de l'utilisateur
         let userc = await User.create(req.body)
-        return res.json({ message: 'User Created', data: userc })
+        return res.status(201).json(userc)
 
     } catch (err) {
         if (err.name == 'SequelizeDatabaseError') {
@@ -81,7 +81,7 @@ exports.updateUser = async (req, res) => {
 
         // Mise à jour de l'utilisateur
         await User.update(req.body, { where: { id: userId } })
-        return res.json({ message: 'User Updated' })
+        return res.statu(200).json({ message: 'User Updated' })
     } catch (err) {
         return res.status(500).json({ message: 'Database Error', error: err })
     }
@@ -99,7 +99,7 @@ exports.deleteUser = (req, res) => {
     User.destroy({ where: { id: id }, force: true })
         .then(num => {
             if (num == 1) {
-                res.send({
+                res.status(200).json({
                     message: "User was deleted successfully!"
                 });
             } else {

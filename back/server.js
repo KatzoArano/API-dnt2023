@@ -1,3 +1,4 @@
+console.log('start server');
 /********************************/
 /*** Import modules*/
 const express = require('express');
@@ -12,6 +13,8 @@ let db = require('./db.config');
 /********************************/
 /*** Initialisation de API */
 const app = express();
+app.use(require('body-parser').json());
+module.exports = app;
 
 /*** Middelware */
 app.use(cors());
@@ -50,4 +53,6 @@ db.sequelize.authenticate()
     })
     .catch(err => console.log('Database error', err))
 
+
+console.log('end server');
 

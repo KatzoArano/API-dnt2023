@@ -40,6 +40,10 @@ module.exports = (sequelize) => {
         cp: {
             type: DataTypes.STRING(),
             defaultValue: ''
+        },
+        role: {
+            type: DataTypes.STRING(),
+            defaultValue: ''
         }
     }, {});
     return User;

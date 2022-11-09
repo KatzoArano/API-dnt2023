@@ -1,0 +1,38 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  # DB
+  mysql:
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./vc/api/mysql-datadb:/data/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=hemengo_distrib
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    networks:
+      - backend
+
+  # API server
+  backend:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - backend
+    volumes:
+      - ./backend:/usr/app/
+    command: bash
+    tty: true
+    ports:
+      - "3007:3007"
+    depends_on:
+      - mysql

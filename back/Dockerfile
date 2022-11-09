@@ -1,16 +1,12 @@
+# FROM: Permet de recuperer la version de node
 FROM node:16
-
-# Create app directory
+#WORKDIR: Permet de configurer le répertoire de travail pour les instrutions suivantes. 
 WORKDIR /app
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
+#COPY: Permet de copier tout le contenu du contexte de build.
+COPY package*.json .
+#RUN: Install les dépéndances
 RUN npm install
-
 COPY . .
-
-EXPOSE 8080
+#CMD: Lance le serveur
 CMD [ "node", "server.js" ]
+
