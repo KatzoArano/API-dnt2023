@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,16 +9,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UEditComponent implements OnInit {
 
-  constructor(private activated: ActivatedRoute) { }
+  user: any = {
+    id: 0,
+    nom: '',
+    prenom: '',
+    email: '',
+    password: '',
+    updatedAt: '',
+    createdAt: '',
+    deletedAt: null,
+
+  }
+  constructor(private activated: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
-    // Au moment ou la page se met en place
-    this.activated.params.subscribe(
-      // on se branche sur le canal par lequel va passer les données
-      (data) => {
-
+    let id = this.activated.snapshot.paramMap.get('id');
+    this.http.get('http://localhost:8888/users/' + id).subscribe(
+      (data: any) => {
+        console.log(data)
+        this.user = data.data;
       }
     )
+
+  }
+
+  onSubmit(): void {
+    console.log(this.user)
   }
 
 }
