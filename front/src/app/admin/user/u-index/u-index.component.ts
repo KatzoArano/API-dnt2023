@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-u-index',
@@ -7,14 +8,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./u-index.component.css']
 })
 export class UIndexComponent implements OnInit {
-  userList: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  // userList: un array de IUser
+  userList: IUser[] = [];
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8888/users').subscribe(
+    this.userService.getAllUsers().subscribe(
       (data: any) => {
-        this.userList = data.users;
+        this.userList = data.users
       }
     )
   }

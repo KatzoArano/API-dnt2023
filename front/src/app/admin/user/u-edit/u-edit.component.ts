@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-u-edit',
@@ -9,23 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UEditComponent implements OnInit {
 
-  user: any = {
+  user: IUser = {
     id: 0,
     nom: '',
     prenom: '',
     email: '',
     password: '',
-    updatedAt: '',
+    adresse: '',
     createdAt: '',
-    deletedAt: null,
+    updatedAt: '',
+    deleteAt: null
 
   }
-  constructor(private activated: ActivatedRoute, private http: HttpClient) { }
+  constructor(private activated: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     let id = this.activated.snapshot.paramMap.get('id');
-    this.http.get('http://localhost:8888/users/' + id).subscribe(
-      (data: any) => {
+    this.userService.getUser(id).subscribe(
+      data => {
         console.log(data)
         this.user = data.data;
       }
