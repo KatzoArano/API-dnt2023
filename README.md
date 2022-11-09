@@ -11,8 +11,8 @@ https://github.com/orkatz-arano/API-dnt2023
 - ng serve
 
 ## IONIC
-- [ ] Création d'une views
-- [ ] Connexion Back / appli mobile
+- [X] Création d'une views
+- [X] Connexion Back / appli mobile
 
 
 ## TODO BACK
