@@ -37,6 +37,9 @@ export class UEditComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.user)
+    this.userService.updateUser(this.user).subscribe(
+      data => console.log(data)
+    )
   }
 
 }
