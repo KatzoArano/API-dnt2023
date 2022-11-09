@@ -1,22 +1,23 @@
-<nav>
-  <ul  id="sidemenu">
-    <div class="card">
-      <div class="card-body">
-        <li> Utilisateur</li>
-        <ul>
-          <li><a [routerLink]="['user']">Liste</a></li>
-          <li><a [routerLink]="['user/add']">Ajouter</a></li>
-        </ul>
-     </div>
+<div class="card">
+  <div class="card-header">
+    UTILISATEURS
   </div>
-  <div class="card">
-    <div class="card-body">
-    <li>Produit</li>
-    <ul>
-      <li><a [routerLink]="['produit']">Liste</a></li>
-      <li><a [routerLink]="['produit/add']">Ajouter</a></li>
-    </ul>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <li class="list-group-item"><a [routerLink]="['user']">Liste</a></li>
+    <li class="list-group-item"><a [routerLink]="['user/add']">Ajouter</a></li>
+    </blockquote>
   </div>
 </div>
-  </ul>
-</nav>
+
+<div class="card">
+  <div class="card-header">
+    PRODUITS
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <li class="list-group-item"><a [routerLink]="['produit']">Liste</a></li>
+    <li class="list-group-item"><a [routerLink]="['produit/add']">Ajouter</a></li>
+    </blockquote>
+  </div>
+</div>
