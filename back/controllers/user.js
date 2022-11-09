@@ -35,7 +35,6 @@ exports.getUser = async (req, res) => {
 exports.addUser = async (req, res) => {
     const { nom, prenom, email, password, adresse } = req.body
 
-
     // Validation des données reçues
     if (!nom || !prenom || !email || !password || !adresse) {
         return res.status(400).json({ message: 'Missing Data' })
@@ -49,12 +48,12 @@ exports.addUser = async (req, res) => {
         }
 
         // Hashage du mot de passe utilisateur
-        let hash = await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
-        req.body.password = hash
+        // let hash = await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
+        // req.body.password = hash
 
         // Céation de l'utilisateur
         let userc = await User.create(req.body)
-        return res.status(201).json(userc)
+        return res.json({ message: 'User Created', data: userc })
 
     } catch (err) {
         if (err.name == 'SequelizeDatabaseError') {
@@ -96,17 +95,15 @@ exports.deleteUser = (req, res) => {
     // }
 
     // Suppression de l'utilisateur
-    User.destroy({ where: { id: id }, force: true })
-        .then(num => {
-            if (num == 11) {
-                res.status(200).json({
-                    message: "User was deleted successfully!"
-                });
-            } else {
-                res.send({
-                    message: `Cannot delete User with id=${id}. Maybe User was not found!`
-                });
-            }
-        })
-        .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
+    User.destroy({
+        where: {
+            id: id
+        }
+    }).then(count => {
+        if (count === 0) {
+            return res.status(404).send({ error: 'No user' });
+        }
+        res.status(204).send();
+    });
+
 }
