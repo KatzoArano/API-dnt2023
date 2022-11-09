@@ -47,6 +47,9 @@ https://github.com/orkatz-arano/API-dnt2023
 ## UML
 <img width="728" alt="Capture d’écran 2022-06-30 à 12 38 35" src="https://user-images.githubusercontent.com/108459343/176658079-7e9d4731-2a49-442c-855c-50cb7848b6de.png">
 
+## DIAGRAMME FRONT ANGULAR
+<img width="1225" alt="diagram_front" src="https://user-images.githubusercontent.com/16325747/200786584-1ab40b08-d8fe-47f6-b819-bad023d10b20.png">
+
 ## DOCUMENTATION API
 - [x] https://hemengo-distrib.gitbook.io/crud-utilisateur/
 
