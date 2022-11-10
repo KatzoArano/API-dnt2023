@@ -1,5 +1,3 @@
-import { StringifyOptions } from "querystring";
-
 export interface IUser {
   id: number,
   nom: string,
@@ -21,4 +19,3 @@ export interface ISingleUser {
 export interface IDataUser {
   data: IUser[]
 }
-  
