@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  // userList: un array de IUser
+  userList: IUser[] = [];
+
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit(): void {
-    // Récupere les utilisateurs sous forme d'un table
-    // Récupere les produits
-  }
+    this.userService.getAllUsers().subscribe(
+      (data: any) => {
+        this.userList = data.users
+      }
+    )
 
+  }
 }
