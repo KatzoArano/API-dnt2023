@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ContactPage } from '../contact/contact.page';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from '../_services/user.service';
+
 
 @Component({
   selector: 'app-tab1',
@@ -11,18 +14,19 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  data: any[] = [];
+  userList: IUser[] = [];
 
-  constructor(private http: HttpClient, private modalController: ModalController, public router: Router) {
+
+  constructor(private http: HttpClient, private modalController: ModalController, public router: Router, private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.http
-      .get(`http://localhost:8888/users/`)
-      .subscribe((resp: { data: any }) => {
-        console.log(resp.data)
-        this.data = resp.data
-      });
+    this.userService.getAllUsers().subscribe(
+      (data: any) => {
+        this.userList = data.users
+      }
+    )
+
   }
 
   click() {
