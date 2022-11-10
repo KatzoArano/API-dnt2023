@@ -41,7 +41,9 @@ export class UEditComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe(
       data => data
     )
-    // this.router.navigate(['/admin/user']);
+    setTimeout(() => {
+      this.router.navigate(['admin/user']);
+    }, 1000)
   }
 
 }

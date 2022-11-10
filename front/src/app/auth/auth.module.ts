@@ -6,18 +6,20 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     LogoutComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    CreateAccountComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class AuthModule { }

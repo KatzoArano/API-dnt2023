@@ -1,1 +1,78 @@
 <p>ONGI ETORRI Hemengo Distrib !</p>
+
+
+<h3>Liste des utilisateurs enregistrés</h3>
+<div class="center">
+  <div class="card">
+      <div class="card-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Date de création</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createdAt | date:'dd/mm/yyyy' }} </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  </div>
+</div><br>
+
+<h3>Liste de produits enregistrés</h3>
+<div class="center">
+  <div class="card">
+      <div class="card-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Catégories</th>
+                    <th>Date de création</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Paella végétarien </td>
+                    <td> Ceci est la description de la paella végétarien.</td>
+                    <td>Plat</td>
+                    <td>10/11/2022</td>
+                </tr>
+                    <tr>
+                    <td>Paella végétarien </td>
+                    <td> Ceci est la description de la paella végétarien.</td>
+                    <td>Plat</td>
+                    <td>10/11/2022</td>
+                </tr>
+                    <tr>
+                    <td>Paella végétarien </td>
+                    <td> Ceci est la description de la paella végétarien.</td>
+                    <td>Plat</td>
+                    <td>10/11/2022</td>
+                </tr>
+                    <tr>
+                    <td>Paella végétarien </td>
+                    <td> Ceci est la description de la paella végétarien.</td>
+                    <td>Plat</td>
+                    <td>10/11/2022</td>
+                </tr>
+                    <tr>
+                    <td>Paella végétarien </td>
+                    <td> Ceci est la description de la paella végétarien.</td>
+                    <td>Plat</td>
+                    <td>10/11/2022</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  </div>
+</div>

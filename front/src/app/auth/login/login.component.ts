@@ -28,21 +28,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onSubmit(): void {
-  //   console.log(this.form)
-  //   this.authService.login(this.form).subscribe(
-  //     data => {
-  //       console.log(data.access_token)
-  //       this.tokenService.saveToken(data.access_token)
-  //     },
-  //     err => console.log(err)
-  //   )
-  // }
+  onSubmit() {
+    if (this.form.email === "orkatz@wanadoo.fr" && this.form.password === "orkatz") {
+      this.router.navigate(['home']);
+    }
+  }
 
-  // login() {
-  //   if (this.form.email === "orkatz@wanadoo.fr" && this.form.password === "orkatz") {
-  //     this.router.navigate(['home']);
-  //   }
-  // }
+  createAccount() {
+    this.router.navigate(['auth/register']);
+  }
+
 
 }

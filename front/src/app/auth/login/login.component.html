@@ -1,7 +1,7 @@
 <div class="form_container">
   <form  name="form"
         #f="ngForm"
-        (ngSubmit)="f.form.valid">
+        (ngSubmit)="f.form.valid && onSubmit()">
     <div class="group">
       <label for="email"></label>
       <input type="email" name="email" id="email" placeholder="Email..." [(ngModel)]="form.email" #email="ngModel" required class="form-control">
@@ -22,6 +22,7 @@
       <button class="form-control btn-login">Connexion</button>
     </div>
     <a class="password">Mot de passe oublié?</a><br>
-    <a class="password">Créer un compte</a>
+    <a (click)="createAccount()">Créer un compte </a>
   </form>
 </div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUser } from 'src/app/_interfaces/user';
 import { UserService } from 'src/app/_services/user.service';
 
@@ -12,7 +13,8 @@ export class UIndexComponent implements OnInit {
   // userList: un array de IUser
   userList: IUser[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(
@@ -27,6 +29,9 @@ export class UIndexComponent implements OnInit {
     this.userService.deleteUser(id).subscribe(
       data => data
     )
+    setTimeout(() => {
+      this.router.navigate(['admin/dashboard']);
+    }, 1500)
   }
 
 }

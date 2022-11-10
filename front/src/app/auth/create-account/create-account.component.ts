@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/_interfaces/user';
 import { UserService } from 'src/app/_services/user.service';
+import { IUser } from 'src/app/_interfaces/user';
+
 
 @Component({
-  selector: 'app-u-add',
-  templateUrl: './u-add.component.html',
-  styleUrls: ['./u-add.component.css']
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.css']
 })
-export class UAddComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
 
   user: IUser = {
     id: 0,
@@ -26,12 +27,10 @@ export class UAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   onSubmit() {
     this.userService.addUser(this.user).subscribe(
       data => console.log(data)
     )
   }
-
 
 }
