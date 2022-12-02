@@ -37,10 +37,10 @@ exports.getUser = async (req, res) => {
 }
 
 exports.addUser = async (req, res) => {
-    const { nom, prenom, email, password, adresse } = req.body
+    const { nom, prenom, email, password } = req.body
 
     // Validation des données reçues
-    if (!nom || !prenom || !email || !password || !adresse) {
+    if (!nom || !prenom || !email || !password) {
         return res.status(400).json({ message: 'Missing Data' })
     }
 

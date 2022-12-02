@@ -36,5 +36,17 @@ services:
     ports:
       - 8080:8080
 
+  frontend:
+    container_name: hemengo_distrib_front
+    profiles: [ "prod", "dev" ]
+    build: ./front/
+    ports:
+      - 4200:4200
+    expose:
+      - 4200
+    tty: true
+    depends_on:
+      - backend
+
 volumes:
   db_data: {}
