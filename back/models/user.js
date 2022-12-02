@@ -28,22 +28,6 @@ module.exports = (sequelize) => {
         password: {
             type: DataTypes.STRING(64),
             is: /^[0-9a-f]{64}$/i // contrainte
-        },
-        adresse: {
-            type: DataTypes.STRING(),
-            defaultValue: ''
-        },
-        ville: {
-            type: DataTypes.STRING(),
-            defaultValue: ''
-        },
-        cp: {
-            type: DataTypes.STRING(),
-            defaultValue: ''
-        },
-        role: {
-            type: DataTypes.STRING(),
-            defaultValue: ''
         }
     }, {});
     return User;

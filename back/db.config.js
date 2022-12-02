@@ -5,6 +5,7 @@ const { Sequelize } = require('sequelize');
 /********************************/
 /*** Connexion à la BDD */
 let sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, { dialect: 'mysql', host: process.env.DB_HOST });
+console.log('------------------------------------------', process.env.DB_HOST, process.env.DB_NAME)
 const db = {};
 db.sequelize = sequelize
 db.User = require('./models/user')(sequelize)
@@ -21,4 +22,3 @@ db.Produit.belongsTo(db.Produit_Categorie);
 // sequelize.sync({ alter: true })
 
 module.exports = db;
-

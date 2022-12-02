@@ -13,6 +13,8 @@ let router = express.Router();
 /**********************************/
 /*** Routage de la ressource User */
 
+router.get('/test', userCtrl.getTest)
+
 router.get('/', userCtrl.getAllUsers)
 
 router.get('/:id', userCtrl.getUser)

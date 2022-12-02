@@ -5,6 +5,10 @@ const User = DB.User
 /**********************************/
 /*** Routage de la ressource User */
 
+exports.getTest = (req, res) => {
+    res.send('API répond correctement!! ')
+}
+
 exports.getAllUsers = (req, res) => {
     User.findAll()
         .then(users => res.json({ users }))

@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  mysql:
+    container_name: mysqldb
+    image: mysql:5.7
+    profiles: [ "prod", "dev" ]
+    volumes:
+      - ./mysql:/var/lib/mysql
+    restart: always
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: hemengo_distrib
+      MYSQL_ROOT_PASSWORD: mauFJcuf5dhRMQrjj
+
+  backend:
+    container_name: hemengo_distrib_back
+    profiles: [ "prod", "dev" ]
+    depends_on:
+      - mysql
+    build: ./back/
+    ports:
+      - 1200:1200
+    restart: always
+    environment:
+      DB_HOST: mysql
+      DB_NAME: hemengo_distrib
+      DB_USER: root
+      DB_PASS: mauFJcuf5dhRMQrjj
+
+  adminer:
+    image: adminer
+    restart: always
+    profiles: [ "dev" ]
+    ports:
+      - 8080:8080
+
+volumes:
+  db_data: {}
