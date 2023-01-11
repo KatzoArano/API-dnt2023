@@ -8,13 +8,23 @@ pipeline {
                 echo 'Checkout Completed'
             }
         }
+           stage('Build') {
+            steps {
+                sh './ci-cd/build.sh'
+                echo 'Building..'
+
+            }
+        }
         stage('Test') {
             steps {
+                sh './ci-cd/test.sh'
                 echo 'Testing..'
+
             }
         }
         stage('Deploy') {
             steps {
+                sh './ci-cd/deploy.sh'
                 echo 'Deploying....'
             }
         }
