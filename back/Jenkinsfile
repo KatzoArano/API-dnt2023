@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Chekout') {
+            steps {
+                git url: 'https://github.com/KatzoArano/API-dnt2023/tree/main/back', branch: 'main'
+                echo 'Checkout Completed'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
