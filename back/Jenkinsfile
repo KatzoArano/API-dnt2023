@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Chekout') {
             steps {
-                git url: 'https://github.com/KatzoArano/API-dnt2023/tree/main/back', branch: 'main'
+                git url: 'https://github.com/KatzoArano/API-dnt2023', branch: 'main'
                 echo 'Checkout Completed'
             }
         }
