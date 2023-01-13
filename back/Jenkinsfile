@@ -10,24 +10,21 @@ pipeline {
         }
            stage('Build') {
             steps {
-                sh 'chmod +x ./back/cicd/build.sh'
-                sh './back/cicd/build.sh'
+                sh 'npm install'
                 echo 'Building..'
 
             }
         }
         stage('Test') {
             steps {
-                sh 'chmod +x ./back/cicd/test.sh'
-                sh './back/cicd/build.sh'
+                sh 'npm test'
                 echo 'Testing..'
 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'chmod +x ./back/cicd/deploy.sh'
-                sh './back/cicd/build.sh'
+                sh 'npm run start'
                 echo 'Deploying....'
             }
         }
