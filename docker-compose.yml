@@ -16,12 +16,12 @@ services:
 
   backend:
     container_name: hemengo_distrib_back
-    profiles: [ "prod", "dev" ]
+    profiles: [ "prod", "dev", "mobile" ]
     depends_on:
       - mysql
     build: ./back/
     ports:
-      - 1200:1200
+      - 1201:1201
     restart: always
     environment:
       DB_HOST: mysql
@@ -45,6 +45,17 @@ services:
     expose:
       - 4200
     tty: true
+    depends_on:
+      - backend
+
+  ionic:
+    container_name: ionic_app
+    profiles: [ "prod", "dev", "mobile" ]
+    build: ./front-mobile/
+    ports:
+      - 5000:5000
+    expose:
+      - 5000
     depends_on:
       - backend
 
