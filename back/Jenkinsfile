@@ -10,7 +10,7 @@ pipeline {
         }
            stage('Build') {
             steps {
-                sh 'cicd/build.sh'
+                sh './back/cicd/build.sh'
                 echo 'Building..'
 
             }
