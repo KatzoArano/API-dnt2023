@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    tools {nodejs "NodeJS"}
+
     stages {
         stage('Chekout') {
             steps {
@@ -10,7 +12,7 @@ pipeline {
         }
            stage('Build') {
             steps {
-                sh 'sudo apt install npm'
+                sh 'npm install'
                 echo 'Building..'
 
             }
