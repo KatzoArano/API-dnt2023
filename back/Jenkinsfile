@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pwd && cd back && npm i && npm test'
+                sh 'pwd && cd back && npm install && npm test'
                 echo 'Testing..'
 
             }
