@@ -1,1 +1,2 @@
-echo fichier deploy.sh
+npm run start && 
+echo "Deployer"
