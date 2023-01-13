@@ -1,1 +1,1 @@
-echo fichier test.sh
+npm run test

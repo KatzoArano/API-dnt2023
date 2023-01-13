@@ -1,1 +1,1 @@
-echo fichier build.sh
+npm install

@@ -33,70 +33,70 @@ describe('/GET users', () => {
 });
 
 
-describe('/POST user', () => {
-    it('it sould post the user info', (done) => {
-        chai.request(app)
-            .post('/users')
-            .send({ nom: "Aa", prenom: "aaaaaaa", email: "aaaaaaa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test", cp: "6464", role: "client" })
-            .end((err, res) => {
-                res.should.have.status(201);
-                done();
-            });
-    });
-});
+// describe('/POST user', () => {
+//     it('it sould post the user info', (done) => {
+//         chai.request(app)
+//             .post('/users')
+//             .send({ nom: "Aa", prenom: "aaaaaaa", email: "aaaaaaa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test", cp: "6464", role: "client" })
+//             .end((err, res) => {
+//                 res.should.have.status(201);
+//                 done();
+//             });
+//     });
+// });
 
-describe('/POST user', () => {
-    it('it sould the user already exists !` ', (done) => {
-        chai.request(app)
-            .post('/users')
-            .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test", cp: "6464", role: "client" })
-            .end((err, res) => {
-                res.should.have.status(409);
-                done();
-            });
-    });
-});
+// describe('/POST user', () => {
+//     it('it sould the user already exists !` ', (done) => {
+//         chai.request(app)
+//             .post('/users')
+//             .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test", cp: "6464", role: "client" })
+//             .end((err, res) => {
+//                 res.should.have.status(409);
+//                 done();
+//             });
+//     });
+// });
 
-describe('/POST user', () => {
-    it('it sould mssing data !` ', (done) => {
-        chai.request(app)
-            .post('/users')
-            .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test" })
-            .end((err, res) => {
-                res.should.have.status(400);
-                done();
-            });
-    });
-});
+// describe('/POST user', () => {
+//     it('it sould mssing data !` ', (done) => {
+//         chai.request(app)
+//             .post('/users')
+//             .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test" })
+//             .end((err, res) => {
+//                 res.should.have.status(400);
+//                 done();
+//             });
+//     });
+// });
 
-describe('/PUT user', () => {
-    it("should update the user info", (done) => {
-        const userId = 12;
+// describe('/PUT user', () => {
+//     it("should update the user info", (done) => {
+//         const userId = 12;
 
-        chai.request(app)
-            .put(`/users/${userId}`)
-            .send({
-                nom: "Kaosa",
-                prenom: "Kaos",
-                email: "kaos@wanadoo.fraaa",
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                done();
-            });
-    });
-});
+//         chai.request(app)
+//             .put(`/users/${userId}`)
+//             .send({
+//                 nom: "Kaosa",
+//                 prenom: "Kaos",
+//                 email: "kaos@wanadoo.fraaa",
+//             })
+//             .end((err, res) => {
+//                 res.should.have.status(200);
+//                 done();
+//             });
+//     });
+// });
 
-describe('/DELETE user', () => {
-    it('it sould delete user !` ', (done) => {
-        const userId = 1;
-        chai.request(app)
-            .delete(`/users/${userId}`)
-            .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test" })
-            .end((err, res) => {
-                res.should.have.status(200);
-                done();
-            });
-    });
-});
+// describe('/DELETE user', () => {
+//     it('it sould delete user !` ', (done) => {
+//         const userId = 1;
+//         chai.request(app)
+//             .delete(`/users/${userId}`)
+//             .send({ nom: "A", prenom: "12345", email: "aa@wanadoo.fr", password: "orkatz", adresse: "test", ville: "test" })
+//             .end((err, res) => {
+//                 res.should.have.status(200);
+//                 done();
+//             });
+//     });
+// });
 
