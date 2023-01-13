@@ -12,21 +12,21 @@ pipeline {
         }
            stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'pwd && cd back && npm install'
                 echo 'Building..'
 
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'pwd && cd back && npm test'
                 echo 'Testing..'
 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'npm run start'
+                sh 'pwd && cd back && npm run start'
                 echo 'Deploying....'
             }
         }
