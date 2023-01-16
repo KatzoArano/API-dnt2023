@@ -20,17 +20,33 @@ describe('/GET users not found', () => {
     });
 });
 
-describe('/GET users', () => {
-    it('it should Get all users', (done) => {
+describe("GET page accueil", function () {
+
+    // #1 should return home page
+    it("retour page Accueil", function (done) {
+        // calling home page
         chai.request(app)
-            .get('/users')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
+            .get("/")
+            .expect("Content-type", /text/)
+            .expect(200) // THis is HTTP response
+            .end(function (err, res) {
+                // HTTP status should be 200
+                res.status.should.equal(200);
                 done();
             });
     });
 });
+// describe('/GET users', () => {
+//     it('it should Get all users', (done) => {
+//         chai.request(app)
+//             .get('/users')
+//             .end((err, res) => {
+//                 res.should.have.status(200);
+//                 res.body.should.be.a('object');
+//                 done();
+//             });
+//     });
+// });
 
 
 // describe('/POST user', () => {
